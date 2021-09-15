@@ -32,6 +32,9 @@ class EditBio extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
               child: TextField(
                 controller: bioFieldController,
+                keyboardType: TextInputType.multiline,
+                maxLength: 200,
+                maxLines: 6,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: 'Enter your bio'),
               ),
@@ -41,7 +44,6 @@ class EditBio extends StatelessWidget {
             ),
             TextButton(
                 onPressed: () {
-                  // TODO: Add email validation code
                   Navigator.pop(context, bioFieldController.text);
                 },
                 style: ButtonStyle(
@@ -50,9 +52,6 @@ class EditBio extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue)),
                 child: const Text('Save')),
-            const SizedBox(
-              height: 120,
-            )
           ],
         ),
       ),

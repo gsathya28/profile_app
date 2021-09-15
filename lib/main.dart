@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:profile_app/pages/profile_page.dart';
-import 'package:profile_app/pages/edit_name.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Profile App',
       routes: {
-        '/': (context) => ProfilePage(),
+        '/': (context) => const ProfilePage(),
       },
     );
   }

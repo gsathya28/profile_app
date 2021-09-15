@@ -3,6 +3,7 @@ import 'package:profile_app/pages/edit_name.dart';
 import 'package:profile_app/pages/edit_phone.dart';
 import 'package:profile_app/pages/edit_email.dart';
 import 'package:profile_app/pages/edit_bio.dart';
+import 'package:profile_app/model/user.dart';
 
 // ignore: must_be_immutable
 class ProfilePage extends StatefulWidget {
@@ -13,10 +14,12 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  String name = 'Not set';
-  String phone = 'Not set';
-  String email = 'Not set';
-  String bio = 'Not set';
+  User user = User(
+      name: 'Sathya',
+      phone: '612-425-6302',
+      email: 'sathyagovindarajan28@gmail.com',
+      bio:
+          'This is my description about myself. I am super cool and wacky. I write flutter apps now. Motto: No Sacrifice, No Victory. Yes that\'s ripped straight from the first Transformers movie');
 
   @override
   Widget build(BuildContext context) {
@@ -37,58 +40,69 @@ class _ProfilePageState extends State<ProfilePage> {
                   radius: 40.0,
                 ),
               ),
-              Divider(height: 60.0, color: Colors.grey[800]),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text('Change Profile Picture')),
+              Divider(height: 50.0, color: Colors.grey[800]),
               ListTile(
                   title: const Text('Name'),
-                  subtitle: Text(name),
+                  subtitle: Text(user.name),
                   trailing: IconButton(
                     icon: const Icon(Icons.edit),
                     onPressed: () async {
                       final result = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EditName(prevName: name),
+                            builder: (context) => EditName(prevName: user.name),
                           ));
 
-                      setState(() {
-                        name = result;
-                      });
+                      if (result != null) {
+                        setState(() {
+                          user.name = result;
+                        });
+                      }
                     },
                   )),
               const SizedBox(height: 10.0),
               ListTile(
                   title: const Text('Phone'),
-                  subtitle: Text(phone),
+                  subtitle: Text(user.phone),
                   trailing: IconButton(
                     icon: const Icon(Icons.edit),
                     onPressed: () async {
                       final result = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EditPhone(prevPhone: phone),
+                            builder: (context) =>
+                                EditPhone(prevPhone: user.phone),
                           ));
 
-                      setState(() {
-                        phone = result;
-                      });
+                      if (result != null) {
+                        setState(() {
+                          user.phone = result;
+                        });
+                      }
                     },
                   )),
               const SizedBox(height: 10.0),
               ListTile(
                   title: const Text('Email'),
-                  subtitle: Text(email),
+                  subtitle: Text(user.email),
                   trailing: IconButton(
                     icon: const Icon(Icons.edit),
                     onPressed: () async {
                       final result = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EditEmail(prevEmail: email),
+                            builder: (context) =>
+                                EditEmail(prevEmail: user.email),
                           ));
 
-                      setState(() {
-                        email = result;
-                      });
+                      if (result != null) {
+                        setState(() {
+                          user.email = result;
+                        });
+                      }
                     },
                   )),
               const SizedBox(height: 10.0),
@@ -107,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     fontSize: 18.0,
                                   )),
                               const SizedBox(height: 5.0),
-                              Text(bio),
+                              Text(user.bio),
                             ]),
                       ),
                       Expanded(
@@ -118,12 +132,15 @@ class _ProfilePageState extends State<ProfilePage> {
                               final result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => EditBio(prevBio: bio),
+                                    builder: (context) =>
+                                        EditBio(prevBio: user.bio),
                                   ));
 
-                              setState(() {
-                                bio = result;
-                              });
+                              if (result != null) {
+                                setState(() {
+                                  user.bio = result;
+                                });
+                              }
                             },
                           )),
                     ],

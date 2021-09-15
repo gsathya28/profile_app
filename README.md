@@ -2,15 +2,18 @@
 
 Profile App
 
-## Getting Started
+## Running the App
 
-This project is a starting point for a Flutter application.
+This app should run like any other Flutter app in debug mode.
+Simply install [flutter](https://flutter.dev/docs/get-started/install)  
+Then run 'flutter doctor' and 'flutter run' after connecting a device.
+Tested on Web and Android.
+Flutter version: 2.5
 
-A few resources to get you started if this is your first Flutter project:
+## Design Notes + Todos
+Has user data for holding/encapsulating user info together.
+Since each field has it's own page, there is no real advantage to encapsulating (yet).
+No real input validation yet. There are very simple validators set up in the user object waiting to be used.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Also couldn't get the image_picker working either. Will need to investigate.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
